@@ -9,5 +9,171 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-color: #2A233C;
 }
 
+/* Estilos do Cabeçalho */
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+}
+
+.header-logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.header-logo img{
+    width: 4rem;
+    height: auto;
+}
+
+.header-logo h1{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.header-options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-home, .icon-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    padding: 0.25rem 0.25rem 0.3rem 0.25rem;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 10rem;
+    transition: 0.5s;
+}
+
+.icon-home:hover{
+    border: 1px solid #CAC9CD;
+    border-radius: 10rem;
+}
+
+.icon-home svg{
+    width: 2.5rem;
+    height: auto;
+}
+
+.icon-user img {
+    width: 3rem;
+    height: auto;
+    border-radius: 10rem;
+}
+
+.icon-user:hover .user-online{
+    background-color: #04F81C;
+}
+
+.user-online{
+    background-color: transparent;
+    border: 2px solid #04F81C;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    right: -15%;
+    margin: 0.5rem;
+    transition: 0.3s;
+}
+
+/* Estilos do corpo */
+.search-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2% 1% 2%;
+}
+
+.search-container h2{
+    font-size: 2rem;
+    color: #CAC9CD;
+}
+
+.search-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.search-products label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.search-products input{
+    background-color: transparent;
+    border: 1px solid #CAC9CD;
+}
+
+.icon-search{
+    position: absolute;
+}
+
+.create-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3BADFB;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    width: 11rem;
+    padding: 2% 1% 2% 1%;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+}
+
+.create-button:hover {
+    background-color: #2F80ED;
+    color: #fff;
+    transition: 0.5s;
+}
+
+/* Estilos do rodapé */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    background-color: transparent;
+    color: #fff;
+    padding: 2%;
+    font-size: 1.3rem;
+    font-weight: 400;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+footer p {
+    text-align: center;
+    width: 100%;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 0.3%;
+    font-weight: 500;
+    text-decoration: underline;
+}
