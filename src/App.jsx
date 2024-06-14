@@ -1,8 +1,11 @@
 import { Routes, Route, Link } from "react-router-dom"
+import { Toaster } from "react-hot-toast"
 
 //Rotas - Pages
 import HomePage from "./pages/HomePage"
 import EditPage from "./pages/EditPage"
+import CreatePage from "./pages/CreatePage"
+
 
 function App() {
 
@@ -25,7 +28,8 @@ function App() {
             </header>
             <Routes>
                 <Route index element={<HomePage />} />
-                <Route path="/editar" element={<EditPage />} />
+                <Route path="/editar" element={<EditPage />}></Route>
+                <Route path="/criar" element={<CreatePage/>} />
             </Routes>
             <footer>
                 <p>
@@ -35,6 +39,18 @@ function App() {
                     </strong>
                 </p>
             </footer>
+            <Toaster 
+            position="top-right" 
+            reverseOrder={false}
+            toastOptions={{
+                duration: 1500,
+                style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                },
+            }} 
+            />
         </>
     )
 }

@@ -13,14 +13,14 @@ body {
 }
 
 /* Estilos do Cabeçalho */
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2%;
+    padding: 2% 4% 2% 4%;
 }
 
-.header-logo{
+.header-logo {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -28,25 +28,26 @@ header{
     text-decoration: none;
 }
 
-.header-logo img{
+.header-logo img {
     width: 4rem;
     height: auto;
 }
 
-.header-logo h1{
+.header-logo h1 {
     text-transform: uppercase;
     font-size: 1.5rem;
     color: #fff;
 }
 
-.header-options{
+.header-options {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
 
-.icon-home, .icon-user{
+.icon-home,
+.icon-user {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,12 +59,12 @@ header{
     transition: 0.5s;
 }
 
-.icon-home:hover{
+.icon-home:hover {
     border: 1px solid #CAC9CD;
     border-radius: 10rem;
 }
 
-.icon-home svg{
+.icon-home svg {
     width: 2.5rem;
     height: auto;
 }
@@ -74,11 +75,11 @@ header{
     border-radius: 10rem;
 }
 
-.icon-user:hover .user-online{
+.icon-user:hover .user-online {
     background-color: #04F81C;
 }
 
-.user-online{
+.user-online {
     background-color: transparent;
     border: 2px solid #04F81C;
     width: 1rem;
@@ -92,46 +93,112 @@ header{
 }
 
 /* Estilos do corpo */
-.search-container{
+.search-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1% 2% 1% 2%;
+    padding: 1% 0% 1% 0%;
+    border-bottom: 1px solid #CAC9CD;
+    margin: 1% 4% 0 4%;
 }
 
-.search-container h2{
+.search-container h2 {
     font-size: 2rem;
     color: #CAC9CD;
 }
 
-.search-area{
+.search-area {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
 }
 
-.search-products label{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
+.search-products {
+    --input-bg: transparent;
+    --padding: 1.5em;
+    --rotate: 80deg;
+    --gap: 2em;
+    --icon-change-color: #fff;
+    --height: 35px;
+    width: 24.1rem;
+    padding-inline-end: 1em;
+    background: var(--input-bg);
     position: relative;
-}
-
-.search-products input{
-    background-color: transparent;
+    border-radius: 0.3rem;
     border: 1px solid #CAC9CD;
 }
 
-.icon-search{
-    position: absolute;
+.search-products label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: var(--height);
 }
 
-.create-button{
+.search-products input {
+    width: 100%;
+    height: auto;
+    padding-inline-start: calc(var(--padding) + var(--gap));
+    outline: none;
+    background: none;
+    border: 0;
+    color: #fff;
+}
+
+.search-products input::placeholder {
+    color: #cac9cdcd;
+}
+
+.search-products svg {
+    transition: 0.3s cubic-bezier(.4, 0, .2, 1);
+    height: 15px;
+}
+
+.icon-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 21rem;
+}
+
+.icon-search svg{
+    width: 1.35rem;
+    height: auto;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    right: calc(var(--padding) - var(--gap));
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-products :focus-within .close-btn {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.create-button {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.2rem;
     background-color: #3BADFB;
     font-size: 1rem;
     font-weight: 600;
@@ -148,6 +215,52 @@ header{
     background-color: #2F80ED;
     color: #fff;
     transition: 0.5s;
+}
+
+.create-button svg{
+    width: 1.5rem;
+    height: auto;
+}
+
+/* Estilos da tabela */
+.container-products{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3% 4% 3% 4%;
+}
+
+.product-card{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #cac9cd07;
+    background-color: #312D4B;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    color: #E7E3FC;
+}
+
+.product-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+.product-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-title h3{
+    font-size: 1.063rem;
+    font-weight: 600;
 }
 
 /* Estilos do rodapé */
