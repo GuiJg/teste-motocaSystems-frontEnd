@@ -26,6 +26,18 @@ function HomePage() {
         getProducts();
     }, []);
 
+    //se product.status for "Em trânsito" o texto fica laranja com fundo laranja, caso seja "Em estoque" o texto fica verde com fundo verde e caso seja "Sem estoque" o texto fica vermelho com fundo vermelho
+    const statusColor = (status) => {
+        if (status === "Em trânsito") {
+            return "orange";
+        } else if (status === "Em estoque") {
+            return "green";
+        } else {
+            return "red";
+        }
+    }
+    
+
     //função para deletar produtos
     const deleteProduct = async (id) => {
         const result = await sweet.fire({
@@ -41,8 +53,8 @@ function HomePage() {
             try {
                 console.log(`http://localhost:3000/produtos/${id}`);
                 await axios.delete(`http://localhost:3000/produtos/${id}`);
-                getProducts();
                 toast.success(`Deletado com sucesso!`);
+                getProducts();
             } catch (error) {
                 toast.error(error.message);
             }
@@ -78,7 +90,7 @@ function HomePage() {
                         <div className="product-data">
                             <div className="product-title">
                                 <h3>{product.name}</h3>
-                                <p>{product.status}</p>
+                                <p><span style={{ color: statusColor(product.status) }}>{product.status}</span></p>
                             </div>
                             <p>Valor: R${product.price},00</p>
                             <p>Cor: {product.color}</p>

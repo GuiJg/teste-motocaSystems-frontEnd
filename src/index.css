@@ -17,6 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #2A233C;
     padding: 2% 4% 2% 4%;
 }
 
@@ -46,7 +47,28 @@ header {
     gap: 1rem;
 }
 
-.icon-home,
+.user-status-container {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-home{
+    display: flex;
+    border: 1px solid transparent;
+    border-radius: 10rem;
+    padding: 0.25rem 0.25rem 0.3rem 0.25rem;
+    transition: 0.3s;
+}
+
+.icon-home:hover {
+    border: 1px solid #CAC9CD;
+}
+
+.icon-home svg {
+    width: 2.9rem;
+    height: auto;
+}
+
 .icon-user {
     display: flex;
     justify-content: center;
@@ -57,16 +79,8 @@ header {
     border: 1px solid transparent;
     border-radius: 10rem;
     transition: 0.5s;
-}
-
-.icon-home:hover {
-    border: 1px solid #CAC9CD;
-    border-radius: 10rem;
-}
-
-.icon-home svg {
-    width: 2.5rem;
-    height: auto;
+    background: none;
+    cursor: pointer;
 }
 
 .icon-user img {
@@ -75,13 +89,12 @@ header {
     border-radius: 10rem;
 }
 
-.icon-user:hover .user-online {
-    background-color: #04F81C;
+.icon-user:hover {
+    border-radius: 10rem;
 }
 
 .user-online {
     background-color: transparent;
-    border: 2px solid #04F81C;
     width: 1rem;
     height: 1rem;
     border-radius: 1rem;
@@ -89,8 +102,53 @@ header {
     top: 50%;
     right: -15%;
     margin: 0.5rem;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
+
+.user-online.online {
+    background-color: #04F81C;
+}
+
+.user-online.offline {
+    background-color: #FF0000;
+}
+
+.user-online.invisible {
+    background-color: #FFD700;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -30%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; 
+}
+
+.dropdown.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable interaction when visible */
+}
+
+.dropdown div {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown div:hover {
+    background-color: #f1f1f1;
+}
+
 
 /* Estilos do corpo */
 .search-container {
@@ -166,7 +224,7 @@ header {
     right: 21rem;
 }
 
-.icon-search svg{
+.icon-search svg {
     width: 1.35rem;
     height: auto;
 }
@@ -217,13 +275,13 @@ header {
     transition: 0.5s;
 }
 
-.create-button svg{
+.create-button svg {
     width: 1.5rem;
     height: auto;
 }
 
 /* Estilos da tabela */
-.container-products{
+.container-products {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -231,7 +289,7 @@ header {
     margin: 3% 4% 3% 4%;
 }
 
-.product-card{
+.product-card {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -243,7 +301,7 @@ header {
     color: #E7E3FC;
 }
 
-.product-data{
+.product-data {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -251,16 +309,124 @@ header {
     gap: 0.5rem;
 }
 
-.product-title{
+.product-title {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
 
-.product-title h3{
+.product-title h3 {
     font-size: 1.063rem;
     font-weight: 600;
+}
+
+/* Estilos do formulario de criar e editar moto */
+.title-create,
+.title-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1% 0% 1% 0%;
+    margin: 3% 4% 3% 4%;
+    border-bottom: 1px solid #CAC9CD;
+}
+
+.title-create h2,
+.title-edit h2 {
+    color: #CAC9CD;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 3% 4% 3% 4%;
+}
+
+.container-form h2 {
+    color: #CAC9CD;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 30%;
+}
+
+.container-form label {
+    font-size: 1.063rem;
+    font-weight: 600;
+    color: #CAC9CD;
+}
+
+.container-form input {
+    border-radius: 0.3rem;
+    background-color: transparent;
+    border: 1px solid #cac9cda0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #CAC9CD;
+    width: 100%;
+    height: 2.8rem;
+    padding: 3%;
+}
+
+.container-form input::placeholder {
+    color: #CAC9CD;
+    font-size: 1rem;
+    text-transform: none;
+}
+
+.container-form select {
+    border-radius: 0.3rem;
+    background-color: transparent;
+    border: 1px solid #cac9cda0;
+    width: 100%;
+    height: 2.8rem;
+    padding: 3%;
+    color: #CAC9CD;
+}
+
+.container-form button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: #3BADFB;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    margin: 8% 0 8% 0;
+    padding: 2% 1% 2% 1%;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.container-form button:hover {
+    background-color: #2F80ED;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.container-form button svg {
+    width: 1.5rem;
+    height: auto;
 }
 
 /* Estilos do rodapé */
@@ -270,12 +436,11 @@ footer {
     align-items: center;
     margin-top: auto;
     background-color: transparent;
-    color: #fff;
+    color: #CAC9CD;
     padding: 2%;
     font-size: 1.3rem;
     font-weight: 400;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+    border-top: 1px solid #CAC9CD;
 }
 
 footer p {
