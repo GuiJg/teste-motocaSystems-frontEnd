@@ -1,6 +1,6 @@
 # Teste MotocaSystems Frontend
 
-Este projeto é o frontend para o sistema de teste da MotocaSystems, desenvolvido em React com Vite. O sistema inclui operações de CRUD integradas com uma API fake simulada através do JSON Server. Utiliza bibliotecas como `react-hot-toast`, `axios`, `react-router-dom` e `sweetalert2` para melhorar a experiência do usuário.
+Este projeto é o frontend para o sistema de teste da MotocaSystems, desenvolvido em React com Vite. O sistema inclui operações de CRUD integradas com uma API fake simulada através do JSON Server. Foi desenvolvido em um período de apenas 2 dias como parte de um desafio para um processo seletivo. Utiliza bibliotecas como `react-hot-toast`, `axios`, `react-router-dom` e `sweetalert2` para melhorar a experiência do usuário.
 
 ## Funcionalidades
 
