@@ -6,7 +6,6 @@ import axios from "axios";
 
 function HomePage() {
     const [, setIsLoading] = useState(false);
-    const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState([]);
 
     const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
