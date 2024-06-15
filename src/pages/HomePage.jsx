@@ -8,13 +8,13 @@ function HomePage() {
     const [, setIsLoading] = useState(false);
     const [products, setProducts] = useState([]);
 
-    const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
+    // const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
 
     //função para chamar os produtos do json server
     const getProducts = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get(`${VITE_JSON_SERVER_API}/produtos`);
+            const response = await axios.get(`https://json-server-api-one.vercel.app/produtos`);
             setProducts(response.data);
         } catch (error) {
             toast.error(error.message);
@@ -72,7 +72,7 @@ function HomePage() {
             });
 
             if (result.isConfirmed) {
-                await axios.delete(`${VITE_JSON_SERVER_API}/produtos/${id}`);
+                await axios.delete(`https://json-server-api-one.vercel.app/produtos/${id}`);
                 toast.success(`Produto ${id} deletado com sucesso!`);
 
                 // Após a exclusão bem-sucedida, remover o produto da lista localmente

@@ -15,12 +15,12 @@ function CreatePage() {
     const navigate = useNavigate();
     const nameStatus = ["Em trânsito", "Em estoque", "Sem estoque"];
 
-    const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
+    // const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
 
     //função para chamar os produtos do json server
     const getProducts = async () => {
         try {
-            const response = await axios.get(`${VITE_JSON_SERVER_API}/produtos`);
+            const response = await axios.get(`https://json-server-api-one.vercel.app/produtos`);
             setProducts(response.data);
         } catch (error) {
             toast.error(error.message);
@@ -34,7 +34,7 @@ function CreatePage() {
         e.preventDefault();
         try {
             setIsLoading(true);
-            const response = await axios.post(`${VITE_JSON_SERVER_API}/produtos`, { name, price, color, status, id });
+            const response = await axios.post(`https://json-server-api-one.vercel.app/produtos`, { name, price, color, status, id });
             toast.success(`${response.data.name} cadastrado com sucesso!`);
             getProducts();
             navigate("/");

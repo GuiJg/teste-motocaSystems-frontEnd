@@ -17,13 +17,13 @@ function EditPage() {
     });
     const nameStatus = ["Em trânsito", "Em estoque", "Sem estoque"];
 
-    const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
+    // const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
 
     //função para chamar os produtos do json server
     const getProducts = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get(`${VITE_JSON_SERVER_API}/produtos/${id}`);
+            const response = await axios.get(`https://json-server-api-one.vercel.app/produtos/${id}`);
             setProduct({
                 name: response.data.name,
                 price: response.data.price,
@@ -42,7 +42,7 @@ function EditPage() {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await axios.put(`${VITE_JSON_SERVER_API}/produtos/${id}`, product);
+            await axios.put(`https://json-server-api-one.vercel.app/produtos/${id}`, product);
             toast.success(`Editado com sucesso!`);
             navigate("/");
         } catch (error) {
