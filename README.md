@@ -24,3 +24,49 @@ Clone este repositório para sua máquina local utilizando o seguinte comando:
 
 ```bash
 git clone https://github.com/GuiJg/teste-motocaSystems-frontEnd.git
+
+## Como Usar
+
+### Passo 2: Instale as dependências
+
+Navegue até o diretório do projeto e instale as dependências necessárias:
+
+```bash
+cd teste-motocaSystems-frontEnd
+npm install  # ou yarn install
+
+### Passo 3: Inicie o servidor de desenvolvimento
+
+Para iniciar o servidor de desenvolvimento Vite:
+
+```bash
+npm run dev  # ou yarn dev
+
+### Passo 4: Inicie o servidor JSON Server
+
+Abra outro terminal na mesma pasta do projeto e inicie o servidor JSON Server para simular o backend:
+
+```bash
+npm run server  # ou yarn server
+
+### Passo 5: Acesse a aplicação
+
+Abra seu navegador e acesse `http://localhost:3000` para visualizar a aplicação em execução.
+
+## Personalizações
+
+- Ajuste as rotas em `src/routes/index.js`.
+- Configure o JSON Server em `json-server.json`.
+- Personalize o estilo e comportamento das notificações e modais com `react-hot-toast` e `sweetalert2`.
+
+## Deploy
+
+Este projeto pode ser implantado em serviços como Vercel, Netlify ou similar. Certifique-se de configurar as variáveis de ambiente necessárias.
+
+## Contribuições
+
+Contribuições são bem-vindas! Para sugestões, abra um issue. Para alterações significativas, por favor abra um pull request descrevendo suas modificações propostas.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
