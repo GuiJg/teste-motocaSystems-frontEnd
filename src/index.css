@@ -52,7 +52,7 @@ header {
     display: inline-block;
 }
 
-.icon-home{
+.icon-home {
     display: flex;
     border: 1px solid transparent;
     border-radius: 10rem;
@@ -123,20 +123,21 @@ header {
     left: -30%;
     background-color: white;
     border: 1px solid #ddd;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 0.5rem;
     overflow: hidden;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .dropdown.visible {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto; /* Enable interaction when visible */
+    pointer-events: auto;
+    /* Enable interaction when visible */
 }
 
 .dropdown div {
@@ -291,22 +292,33 @@ header {
 
 .product-card {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     border: 1px solid #cac9cd07;
     background-color: #312D4B;
     border-radius: 0.3rem;
-    padding: 1rem;
+    padding: 1rem 3.5rem 1rem 3.5rem;
     color: #E7E3FC;
 }
 
 .product-data {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+#product-code {
+    color: #8C57FF;
+}
+
+.product-info {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .product-title {
@@ -321,15 +333,50 @@ header {
     font-weight: 600;
 }
 
+.product-price-color {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem
+}
+
+.product-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem
+}
+
+.product-actions button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.product-actions svg {
+    width: 2rem;
+    height: auto;
+}
+
+.edit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Estilos do formulario de criar e editar moto */
 .title-create,
 .title-edit {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     gap: 0.5rem;
     padding: 1% 0% 1% 0%;
-    margin: 3% 4% 3% 4%;
+    margin: 1.5% 4% 1.5% 4%;
     border-bottom: 1px solid #CAC9CD;
 }
 
@@ -340,6 +387,32 @@ header {
     font-weight: 600;
 }
 
+.title-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #3BADFB;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+}
+
+.title-link:hover {
+    background-color: #2F80ED;
+    transition: 0.5s;
+}
+
+.title-link svg {
+    width: 1.5rem;
+    height: auto;
+}
+
 .container-form {
     display: flex;
     flex-direction: column;
@@ -348,6 +421,51 @@ header {
     gap: 1rem;
     margin: 3% 4% 3% 4%;
 }
+
+#label-input {
+    transition: all 0.1s ease-in-out;
+    color: #CAC9CD;
+    position: absolute;
+    top: 20%;
+    left: 18px;
+    transform: scale(0.95);
+    opacity: 1;
+    pointer-events: none;
+}
+
+.input-base {
+    border-radius: 10px;
+}
+
+#input:focus~label#label-input,
+#input:not(:placeholder-shown)~#label-input {
+    top: -30% !important;
+    left: 2px !important;
+    transform: scale(0.8);
+    background: #2A233C;
+    color: #E7E3FC;
+    padding: 0 6px;
+    opacity: 1;
+}
+
+#input {
+    transition: outline 0.2s ease;
+    font-size: 1rem;
+    outline-color: var(--button-text);
+    outline: unset;
+    border: 1px solid #bbbbbb;
+    padding: 17px 10px 10px 17px;
+    width: 100%;
+}
+
+#input:focus {
+    border: 1px solid #fff;
+}
+
+.relative {
+    position: relative;
+}
+
 
 .container-form h2 {
     color: #CAC9CD;
@@ -360,7 +478,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin-top: 3%;
     width: 30%;
 }
 
@@ -373,12 +492,12 @@ header {
 .container-form input {
     border-radius: 0.3rem;
     background-color: transparent;
-    border: 1px solid #cac9cda0;
+    border: 1px solid #E7E3FC;
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color: #CAC9CD;
     width: 100%;
-    height: 2.8rem;
+    height: 3.5rem;
     padding: 3%;
 }
 
@@ -393,9 +512,15 @@ header {
     background-color: transparent;
     border: 1px solid #cac9cda0;
     width: 100%;
-    height: 2.8rem;
-    padding: 3%;
+    height: 3rem;
+    padding: 1% 3% 1% 3% !important;
+    font-size: 1rem;
     color: #CAC9CD;
+}
+
+.container-form select option {
+    background-color: #fff;
+    color: #000;
 }
 
 .container-form button {
@@ -411,7 +536,7 @@ header {
     text-decoration: none;
     color: #fff;
     width: 100%;
-    margin: 8% 0 8% 0;
+    margin: 3% 0 8% 0;
     padding: 2% 1% 2% 1%;
     border: none;
     cursor: pointer;

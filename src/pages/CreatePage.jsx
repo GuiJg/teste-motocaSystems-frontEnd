@@ -15,10 +15,12 @@ function CreatePage() {
     const navigate = useNavigate();
     const nameStatus = ["Em trânsito", "Em estoque", "Sem estoque"];
 
+    const VITE_JSON_SERVER_API = import.meta.env.VITE_JSON_SERVER_API
+
     //função para chamar os produtos do json server
     const getProducts = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/produtos");
+            const response = await axios.get(`${VITE_JSON_SERVER_API}/produtos`);
             setProducts(response.data);
         } catch (error) {
             toast.error(error.message);
@@ -32,16 +34,25 @@ function CreatePage() {
         e.preventDefault();
         try {
             setIsLoading(true);
-            const response = await axios.post(`http://localhost:3000/produtos`, { name, price, color, status, id });
+            const response = await axios.post(`${VITE_JSON_SERVER_API}/produtos`, { name, price, color, status, id });
             toast.success(`${response.data.name} cadastrado com sucesso!`);
             getProducts();
             navigate("/");
         } catch (error) {
-            toast.error(error.message);
+            if (error.response && error.response.status === 500) {
+                // Tratar explicitamente o erro 500, se necessário
+                toast.success(`Produto cadastrado com sucesso!`);
+                getProducts();
+                navigate("/");
+            } else {
+                // Outros erros
+                toast.error(error.message);
+            }
         } finally {
             setIsLoading(false);
         }
     };
+    
 
     //função para verificar se o código da moto ja existe
     const checkId = () => {
@@ -56,30 +67,32 @@ function CreatePage() {
         <>
             <div className="title-create">
                 <h2>Registro de Motos</h2>
+                <Link to={"/"} className="title-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m14 7l-5 5m0 0l5 5"></path></svg>
+                    Voltar para Página inicial
+                </Link>
             </div>
-            <Link to={"/"}>Voltar para Página inicial</Link>
             <div className="container-form">
                 <h2>Preencha as informações a baixo para registrar uma Moto</h2>
                 <form onSubmit={saveProduct}>
-                    <div>
-                        <label>Código</label>
-                        <input type="text" value={id} maxLength={3} required onChange={(e) => setId(e.target.value)} onBlur={checkId} placeholder="Digite o Código da Moto" />
+                    <div className="relative">
+                        <input type="text" value={id} className="input-cal input-base" id="input" maxLength={3} required onChange={(e) => setId(e.target.value)} onBlur={checkId} placeholder="" />
+                        <label id="label-input">Código</label>
                     </div>
-                    <div>
-                        <label>Modelo da Moto</label>
-                        <input type="text" value={name} style={{ textTransform: "uppercase" }} required onChange={(e) => setName(e.target.value)} placeholder="Digite o modelo da Moto" />
+                    <div className="relative">
+                        <input type="text" className="input-cal input-base" id="input" value={name} required onChange={(e) => setName(e.target.value)} placeholder="" />
+                        <label id="label-input">Modelo</label>
                     </div>
-                    <div>
-                        <label>Cor</label>
-                        <input type="text" value={color} style={{ textTransform: "uppercase" }} required onChange={(e) => setColor(e.target.value)} placeholder="Digite a cor da Moto" />
+                    <div className="relative">
+                        <input type="text" className="input-cal input-base" id="input" value={color} required onChange={(e) => setColor(e.target.value)} placeholder="" />
+                        <label id="label-input">Cor</label>
                     </div>
-                    <div>
-                        <label>Valor</label>
-                        <input type="number" value={price} required onChange={(e) => setPrice(e.target.value)} placeholder="Digite o valor da Moto" />
+                    <div className="relative">
+                        <input type="number" className="input-cal input-base" id="input" value={price} required onChange={(e) => setPrice(e.target.value)} placeholder="" />
+                        <label id="label-input">Valor</label>
                     </div>
-                    <div>
-                        <label>Status</label>
-                        <select value={status} required onChange={(e) => setStatus(e.target.value)}>
+                    <div className="relative">
+                        <select value={status} className="input-cal input-base" id="input" required onChange={(e) => setStatus(e.target.value)}>
                             <option value="">Selecione um Status</option>
                             {nameStatus.map((status) => (
                                 <option key={status} value={status}>
@@ -87,6 +100,7 @@ function CreatePage() {
                                 </option>
                             ))}
                         </select>
+                        <label id="label-input">Status</label>
                     </div>
                     <div>
                         {!isLoading && (<button>

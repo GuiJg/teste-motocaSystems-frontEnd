@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Routes, Route, Link } from "react-router-dom"
 import { Toaster } from "react-hot-toast"
 
@@ -5,8 +6,9 @@ import { Toaster } from "react-hot-toast"
 import HomePage from "./pages/HomePage"
 import EditPage from "./pages/EditPage"
 import CreatePage from "./pages/CreatePage"
-import { useState } from "react"
 
+// eslint-disable-next-line react-refresh/only-export-components
+export const JSON_SERVER_API = import.meta.env.JSON_SERVER_API
 
 function App() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
